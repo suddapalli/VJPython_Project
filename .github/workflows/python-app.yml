@@ -39,3 +39,18 @@ jobs:
       run: 
         export PYTHONPATH=src
         pytest
+    - name: Copy files to EC2
+      uses: appleboy/ssh-action@v0.1.7
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          cd /path/to/your/app
+          git pull origin main
+          # Add any additional deployment commands here, e.g., restarting services
+          # sudo systemctl restart your-service
+
+    - name: Clean up
+      run: |
+        echo "Deployment completed."
