@@ -47,7 +47,7 @@ jobs:
        # key: ${{ secrets.EC2_SSH_KEY }}
         #script: |
           #cd /src/app.py
-          git pull origin main
+        #  git pull origin main
           # Add any additional deployment commands here, e.g., restarting services
           # sudo systemctl restart your-service
 
